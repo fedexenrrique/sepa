@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="com_template.xhtml">
+
+            <ui:define name="content">
+                <b:jumbotron style="padding-top: 3%">
+                    <b:container>
+                        <b:row>
+                            <b:column col-sm="6" col-md="4" style="margin-right: 3%">
+                                <b:thumbnail>
+                                    <p:gmap center="41.381542, 2.122893" zoom="15" type="HYBRID" style="width:100%;height:400px" />
+                                </b:thumbnail>
+                            </b:column>  
+                            <h:form>
+                                <h3>Nombre Comercio</h3>    
+                                <h:outputLabel for="cuit" value="CUIT:" style="font-size: large; margin-bottom: 0%" />
+                                <h5>15648745612687</h5>
+                                <h:outputLabel for="razon" value="Razon Social:" style="font-size: large; margin-bottom: 0%" />
+                                <h5>bla bla bla razones por las que se creo el comercio o empresa bla bla bla bla</h5>
+                                <h:outputLabel for="cuit" value="Punto de venta N°:" style="font-size: large; margin-bottom: 0%" />
+                                <h5>27</h5>
+                                <h:outputLabel for="razon" value="Ubicacion" style="font-size: large; margin-bottom: 0%" />
+                                <h5>bla bla bla bla bla bla bla</h5>
+                                
+                            </h:form> 
+                        </b:row>
+                    </b:container>
+                </b:jumbotron>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

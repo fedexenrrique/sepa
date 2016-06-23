@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="author" content="The Author"></meta>
+        <title>SEPA</title>
+    </h:head>
+    
+    <h:body>
+        <div id="top">
+            <ui:insert name="top">
+                <b:navBar brand-img="logo2.png" brandHref="cli_inicio.xhtml" inverse="true" position="top" sticky="true">
+                    <h:form styleClass="navbar-form navbar-right">
+                        <div class="form-group">
+                            <b:inputText placeholder="Ingrese su Busqueda" fieldSize="sm"/>
+                        </div>
+                        <b:commandButton type="submit" value="Buscar" class="btn btn-primary" icon="glyphicon glyphicon-search" size="sm"/>
+                    </h:form>
+                </b:navBar>
+            </ui:insert>
+        </div>
+        <div id="content">
+            <ui:insert name="content">
+                <b:jumbotron>
+                    <b:container>
+                    </b:container>
+                </b:jumbotron>
+            </ui:insert>
+        </div>
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <b:container>
+                    <b:row>
+                        <b:column col-md="4">
+                            <h2>¿Para que existe SEPA?</h2>
+                            <p>Se creo para poner a disposición de los consumidores una plataforma informática de colaboración ciudadana, 
+                                a través de la cual los consumidores podrán acceder a la información brindada y comunicar las eventuales inconsistencias 
+                                respecto a la veracidad, claridad y oportunidad de la información proporcionada por los comercios en el 
+                                “Sistema Electrónico de Publicidad de Precios Argentinos (SEPA)”</p>
+                            <p><a href="cli_denuncia.xhtml"><b:button outcome="" value="Denunciar Inconsistencia" icon="glyphicon glyphicon-envelope"/></a></p>
+                        </b:column>
+                        <b:column col-md="4">
+                            <h2>¿Quienes pueden ver los precios?</h2>
+                            <p>La Secretaría de Comercio de la Nación por medio de la Resolución 12/2016 creó el 
+                                Sistema Electrónico de Publicidad de Precios Argentinos (SEPA), 
+                                una plataforma online donde los consumidores podrán conocer los valores de los artículos que se venden en todos los comercios. 
+                            </p>
+                            <p><a href="cli_adheridos.xhtml"><b:button outcome="" value="Comercios Adheridos" icon="glyphicon glyphicon-list"/></a></p>
+                        </b:column>
+                        <b:column col-md="4">
+                            <h2>Acceso para Comercios</h2>
+                            <p>Registro de comercios para la publicación diaria de precios, todos los comercios que realicen venta minorista de productos de consumo masivo, 
+                                deberán informar en forma diaria para su difusión los precios de venta al público vigentes en cada punto de venta. </p>
+                            <p><a href="login.xhtml"><b:button outcome="" value="Iniciar sesion" icon="glyphicon glyphicon-log-in"/></a></p>
+                        </b:column>
+                    </b:row>
+                    <hr/>
+                    <footer>
+                    <p>© Secretaria de Comercio de la Nacion 2016</p>
+                    </footer>
+                </b:container>
+            </ui:insert>
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProductoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_codEan}" for="codEan" />
+                    <h:inputText id="codEan" value="#{productoController.selected.codEan}" title="#{bundle.CreateProductoTitle_codEan}" required="true" requiredMessage="#{bundle.CreateProductoRequiredMessage_codEan}"/>
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_preUnitario}" for="preUnitario" />
+                    <h:inputText id="preUnitario" value="#{productoController.selected.preUnitario}" title="#{bundle.CreateProductoTitle_preUnitario}" />
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_peso}" for="peso" />
+                    <h:inputText id="peso" value="#{productoController.selected.peso}" title="#{bundle.CreateProductoTitle_peso}" />
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_medAnchoCm}" for="medAnchoCm" />
+                    <h:inputText id="medAnchoCm" value="#{productoController.selected.medAnchoCm}" title="#{bundle.CreateProductoTitle_medAnchoCm}" />
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_medAltoCm}" for="medAltoCm" />
+                    <h:inputText id="medAltoCm" value="#{productoController.selected.medAltoCm}" title="#{bundle.CreateProductoTitle_medAltoCm}" />
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_medFondo}" for="medFondo" />
+                    <h:inputText id="medFondo" value="#{productoController.selected.medFondo}" title="#{bundle.CreateProductoTitle_medFondo}" />
+                    <h:outputLabel value="#{bundle.CreateProductoLabel_nomProd}" for="nomProd" />
+                    <h:inputText id="nomProd" value="#{productoController.selected.nomProd}" title="#{bundle.CreateProductoTitle_nomProd}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{productoController.create}" value="#{bundle.CreateProductoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{productoController.prepareList}" value="#{bundle.CreateProductoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProductoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

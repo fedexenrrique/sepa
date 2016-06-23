@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateLocProdTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateLocProdLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{locProdController.selected.precio}" title="#{bundle.CreateLocProdTitle_precio}" required="true" requiredMessage="#{bundle.CreateLocProdRequiredMessage_precio}"/>
+                    <h:outputLabel value="#{bundle.CreateLocProdLabel_codEan}" for="codEan" />
+                    <h:selectOneMenu id="codEan" value="#{locProdController.selected.codEan}" title="#{bundle.CreateLocProdTitle_codEan}" required="true" requiredMessage="#{bundle.CreateLocProdRequiredMessage_codEan}">
+                        <f:selectItems value="#{productoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateLocProdLabel_local}" for="local" />
+                    <h:selectOneMenu id="local" value="#{locProdController.selected.local}" title="#{bundle.CreateLocProdTitle_local}" required="true" requiredMessage="#{bundle.CreateLocProdRequiredMessage_local}">
+                        <f:selectItems value="#{localController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{locProdController.create}" value="#{bundle.CreateLocProdSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{locProdController.prepareList}" value="#{bundle.CreateLocProdShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateLocProdIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

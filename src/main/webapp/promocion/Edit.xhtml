@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPromocionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPromocionLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{promocionController.selected.precio}" title="#{bundle.EditPromocionTitle_precio}" required="true" requiredMessage="#{bundle.EditPromocionRequiredMessage_precio}"/>
+                    <h:outputLabel value="#{bundle.EditPromocionLabel_descPorcen}" for="descPorcen" />
+                    <h:inputText id="descPorcen" value="#{promocionController.selected.descPorcen}" title="#{bundle.EditPromocionTitle_descPorcen}" />
+                    <h:outputLabel value="#{bundle.EditPromocionLabel_descMonto}" for="descMonto" />
+                    <h:inputText id="descMonto" value="#{promocionController.selected.descMonto}" title="#{bundle.EditPromocionTitle_descMonto}" />
+                    <h:outputLabel value="#{bundle.EditPromocionLabel_descHasta}" for="descHasta" />
+                    <h:inputText id="descHasta" value="#{promocionController.selected.descHasta}" title="#{bundle.EditPromocionTitle_descHasta}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPromocionLabel_codEan}" for="codEan" />
+                    <h:selectOneMenu id="codEan" value="#{promocionController.selected.codEan}" title="#{bundle.EditPromocionTitle_codEan}" required="true" requiredMessage="#{bundle.EditPromocionRequiredMessage_codEan}">
+                        <f:selectItems value="#{productoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPromocionLabel_local}" for="local" />
+                    <h:selectOneMenu id="local" value="#{promocionController.selected.local}" title="#{bundle.EditPromocionTitle_local}" required="true" requiredMessage="#{bundle.EditPromocionRequiredMessage_local}">
+                        <f:selectItems value="#{localController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{promocionController.update}" value="#{bundle.EditPromocionSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPromocionViewLink}"/>
+                <br />
+                <h:commandLink action="#{promocionController.prepareList}" value="#{bundle.EditPromocionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPromocionIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

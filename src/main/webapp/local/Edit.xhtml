@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditLocalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditLocalLabel_localPK_idLoc}" for="localPK_idLoc" />
+                    <h:inputText id="localPK_idLoc" value="#{localController.selected.localPK.idLoc}" title="#{bundle.EditLocalTitle_localPK_idLoc}" required="true" requiredMessage="#{bundle.EditLocalRequiredMessage_localPK_idLoc}"/>
+                    <h:outputLabel value="#{bundle.EditLocalLabel_domicilio}" for="domicilio" />
+                    <h:inputText id="domicilio" value="#{localController.selected.domicilio}" title="#{bundle.EditLocalTitle_domicilio}" />
+                    <h:outputLabel value="#{bundle.EditLocalLabel_ubicX}" for="ubicX" />
+                    <h:inputText id="ubicX" value="#{localController.selected.ubicX}" title="#{bundle.EditLocalTitle_ubicX}" />
+                    <h:outputLabel value="#{bundle.EditLocalLabel_ubicY}" for="ubicY" />
+                    <h:inputText id="ubicY" value="#{localController.selected.ubicY}" title="#{bundle.EditLocalTitle_ubicY}" />
+                    <h:outputLabel value="#{bundle.EditLocalLabel_cuit}" for="cuit" />
+                    <h:inputText id="cuit" value="#{localController.selected.cuit}" title="#{bundle.EditLocalTitle_cuit}" />
+                    <h:outputLabel value="#{bundle.EditLocalLabel_promocion}" for="promocion" />
+                    <h:selectOneMenu id="promocion" value="#{localController.selected.promocion}" title="#{bundle.EditLocalTitle_promocion}" >
+                        <f:selectItems value="#{promocionController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditLocalLabel_locProd}" for="locProd" />
+                    <h:selectOneMenu id="locProd" value="#{localController.selected.locProd}" title="#{bundle.EditLocalTitle_locProd}" >
+                        <f:selectItems value="#{locProdController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditLocalLabel_comercio}" for="comercio" />
+                    <h:selectOneMenu id="comercio" value="#{localController.selected.comercio}" title="#{bundle.EditLocalTitle_comercio}" required="true" requiredMessage="#{bundle.EditLocalRequiredMessage_comercio}">
+                        <f:selectItems value="#{comercioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{localController.update}" value="#{bundle.EditLocalSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditLocalViewLink}"/>
+                <br />
+                <h:commandLink action="#{localController.prepareList}" value="#{bundle.EditLocalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditLocalIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

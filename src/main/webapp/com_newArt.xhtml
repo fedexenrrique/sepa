@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+
+
+    <body>
+
+        <ui:composition template="com_template.xhtml">
+
+            <ui:define name="content">
+                <b:jumbotron>
+                    <b:container>
+                        <b:well>
+                            <h2 style="margin-left: 40%">Nuevo Articulo</h2>
+                        </b:well>
+                        <h:form>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputText value="Codigo EAN:" style="margin-right: 15px"/>
+                                <b:inputText fieldSize="sm"/>
+                                
+                                <h:outputText value="Nombre:"/>
+                                <b:inputText fieldSize="sm"/>
+                                
+                                <h:outputText value="Medida:"/>
+                                <b:inputText fieldSize="sm"/>
+                                
+                                <h:outputText value="Precio:"/>
+                                <b:inputText fieldSize="sm">
+                                    <f:facet name="prepend">
+                                        <h:outputText value="AR$" />
+                                    </f:facet>
+                                </b:inputText>
+                            </h:panelGrid>
+                            <br></br>
+                            <b:commandButton type="submit" value="Aceptar" class="btn btn-primary" icon="glyphicon glyphicon-ok"/>
+                        </h:form>                        
+                    </b:container>
+                </b:jumbotron>                                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="com_template.xhtml">
+
+            <ui:define name="content">
+                <b:jumbotron>
+                    <b:container>
+                        <b:well>
+                            <h2 style="margin-left: 40%">Denuncia</h2>
+                        </b:well>
+                        <h:form>
+                            <p:growl id="growl" sticky="true" showDetail="true"/>
+
+                            <p:wizard flowListener="#{userWizard.onFlowProcess}">
+                                <p:tab id="personal" title="Personal">
+                                    <p:panel header="Detalles Personales">
+                                        <p:messages />
+                                        <h:panelGrid columns="2" columnClasses="label, value">
+                                            <h:outputText value="Nombre: *" />
+                                            <p:inputText value="#{userWizard.user.firstname}" required="true" label="Firstname" size="40"/>
+
+                                            <h:outputText value="Apellido: *" style="margin-right: 20px" />
+                                            <p:inputText value="#{userWizard.user.lastname}" required="true" label="Lastname" size="40"/>
+
+                                            <h:outputText value="Email: *" />
+                                            <p:inputText value="#{userWizard.user.email}" required="true" label="Email" size="40"/>
+                                            
+                                            <h:outputText value="Edad: " />
+                                            <p:inputText value="#{userWizard.user.age}" size="5"/>
+
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </p:tab>
+
+                                <p:tab id="address" title="Articulo">
+                                    <p:panel header="Detalles Articulo">
+                                        <p:messages />
+                                        <h:panelGrid columns="2" columnClasses="label, value">
+                                            <h:outputText value="Nombre Articulo: "/>
+                                            <p:inputText value="#{userWizard.user.street}" size="40" />
+
+                                            <h:outputText value="Codigo: " />
+                                            <p:inputText value="#{userWizard.user.postalCode}" size="40" />
+
+                                            <h:outputText value="Breve descripcion de denuncia: " style="margin-right: 20px" />
+                                            <p:inputText value="#{userWizard.user.city}" size="40" />
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </p:tab>
+
+                                <p:tab id="confirm" title="Confirmacion">
+                                    <p:panel header="Confirmacion">
+                                        <h:panelGrid id="confirmation">
+                                            <h:panelGrid columns="2" columnClasses="label, value">
+                                                <h:outputText value="Nombre: " />
+                                                <h:outputText value="#{userWizard.user.firstname}" styleClass="outputLabel"/>
+
+                                                <h:outputText value="Apellido: " />
+                                                <h:outputText value="#{userWizard.user.lastname}" styleClass="outputLabel"/>
+
+                                                <h:outputText value="Edad: " />
+                                                <h:outputText value="#{userWizard.user.age}" styleClass="outputLabel"/>
+                                                <h:outputText value="Email: " />
+                                                <h:outputText value="#{userWizard.user.email}" styleClass="outputLabel"/>
+                                            </h:panelGrid>
+
+                                            <h:panelGrid columns="2" columnClasses="label, value">
+                                                <h:outputText value="Nombre Articulo: " />
+                                                <h:outputText value="#{userWizard.user.street}" styleClass="outputLabel"/>
+
+                                                <h:outputText value="Codigo: " />
+                                                <h:outputText value="#{userWizard.user.postalCode}" styleClass="outputLabel"/>
+
+                                                <h:outputText value="Breve descripcion de denuncia: " />
+                                                <h:outputText value="#{userWizard.user.city}" styleClass="outputLabel"/>
+                                            </h:panelGrid>
+                                        </h:panelGrid>
+
+                                        <p:commandButton value="Submit" actionListener="#{userWizard.save}" update="growl" process="@this"/>
+                                    </p:panel>
+                                </p:tab>
+                            </p:wizard>
+                        </h:form>
+                    </b:container>
+                </b:jumbotron>                
+            </ui:define>
+
+            <ui:define name="bottom">
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

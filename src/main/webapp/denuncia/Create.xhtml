@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDenunciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDenunciaLabel_idDen}" for="idDen" />
+                    <h:inputText id="idDen" value="#{denunciaController.selected.idDen}" title="#{bundle.CreateDenunciaTitle_idDen}" required="true" requiredMessage="#{bundle.CreateDenunciaRequiredMessage_idDen}"/>
+                    <h:outputLabel value="#{bundle.CreateDenunciaLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{denunciaController.selected.nombre}" title="#{bundle.CreateDenunciaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateDenunciaRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateDenunciaLabel_detalle}" for="detalle" />
+                    <h:inputTextarea rows="4" cols="30" id="detalle" value="#{denunciaController.selected.detalle}" title="#{bundle.CreateDenunciaTitle_detalle}" required="true" requiredMessage="#{bundle.CreateDenunciaRequiredMessage_detalle}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{denunciaController.create}" value="#{bundle.CreateDenunciaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{denunciaController.prepareList}" value="#{bundle.CreateDenunciaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDenunciaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

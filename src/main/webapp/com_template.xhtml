@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="author" content="The Author"></meta>
+        <title>SEPA</title>
+    </h:head>
+    
+    <h:body>
+        <div id="top">
+            <ui:insert name="top">
+                <b:navBar brand-img="logo2.png" brandHref="com_inicio.xhtml" inverse="true" position="top" sticky="true">
+                    <b:navbarLinks>
+                        <b:navLink value="Nombre Comercio" href="com_perfil.xhtml" icon="glyphicon glyphicon-home"></b:navLink>
+                        <b:dropMenu value="Articulos" icon="glyphicon glyphicon-folder-open">
+                            <b:navLink value="Ver" href="com_articulos.xhtml" icon="glyphicon glyphicon-info-sign" ></b:navLink>
+                            <b:navLink value="Nuevo" href="com_newArt.xhtml" icon="glyphicon glyphicon-plus"></b:navLink>
+                            <b:navLink></b:navLink>
+                            <b:dropMenu value="Descuentos" icon="glyphicon glyphicon-folder-open">
+                                <b:navLink value="Agregar" href="#" icon="glyphicon glyphicon-plus" ></b:navLink>
+                                <b:navLink value="Quitar" href="#" icon=" glyphicon glyphicon-remove"></b:navLink>
+                            </b:dropMenu>
+                        </b:dropMenu>
+                    </b:navbarLinks>
+                    <h:form styleClass="navbar-form navbar-right">
+                        <div class="form-group">
+                            <b:inputText placeholder="Ingrese su Busqueda"/>
+                        </div>
+                        <b:commandButton type="submit" value="Buscar" class="btn btn-primary" icon="glyphicon glyphicon-search"/>
+                        <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" style="padding: 3px; margin-left: 10px"/>
+                    </h:form>
+                </b:navBar>
+            </ui:insert>
+        </div>
+        <div id="content">
+            <ui:insert name="content">
+                <b:jumbotron>
+                    <b:container>
+                    </b:container>
+                </b:jumbotron>
+            </ui:insert>
+        </div>
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <b:container>
+                    <b:row>
+                        <b:column col-md="4">
+                            <h2>¿Para que existe SEPA?</h2>
+                            <p>Se creo para poner a disposición de los consumidores una plataforma informática de colaboración ciudadana, 
+                                a través de la cual los consumidores podrán acceder a la información brindada y comunicar las eventuales inconsistencias 
+                                respecto a la veracidad, claridad y oportunidad de la información proporcionada por los comercios en el 
+                                “Sistema Electrónico de Publicidad de Precios Argentinos (SEPA)”</p>
+                            <p><a href="com_denuncia.xhtml"><b:button outcome="" value="Denunciar Inconsistencia" icon="glyphicon glyphicon-envelope"/></a></p>
+                        </b:column>
+                        <b:column col-md="4">
+                            <h2>¿Quienes pueden ver los precios?</h2>
+                            <p>La Secretaría de Comercio de la Nación por medio de la Resolución 12/2016 creó el 
+                                Sistema Electrónico de Publicidad de Precios Argentinos (SEPA), 
+                                una plataforma online donde los consumidores podrán conocer los valores de los artículos que se venden en todos los comercios. 
+                            </p>
+                            <p><a href="com_adheridos.xhtml"><b:button outcome="" value="Comercios Adheridos" icon="glyphicon glyphicon-list"/></a></p>
+                        </b:column>
+                    </b:row>
+                    <hr/>
+                    <footer>
+                    <p>© Secretaria de Comercio de la Nacion 2016</p>
+                    </footer>
+                </b:container>
+            </ui:insert>
+        </div>
+    </h:body>
+</html>

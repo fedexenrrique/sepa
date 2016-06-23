@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="cli_template.xhtml">
+
+            <ui:define name="content">
+                <style type="text/css">
+                    .form-signin {
+                        margin: 0 auto;
+                        max-width: 330px;
+                        padding: 15px;
+                    }
+                </style>
+                <b:container style="padding-top: 3%">
+                    <h:form styleClass="form-signin" prependId="false">
+                        <h2 class="form-signin-heading">Iniciar Sesion</h2>
+                        <b:inputText id="cuit" placeholder="CUIT" >
+                            <f:facet name="prepend">
+                                <b:icon name="user" />
+                            </f:facet>
+                        </b:inputText>
+                        <b:inputText id="password" placeholder="Contraseña" type="password">
+                            <f:facet name="prepend">
+                                <b:iconAwesome name="key" />
+                            </f:facet>
+                        </b:inputText>
+                        <b:selectBooleanCheckbox value="true" caption="Recordar"/>
+                        <b:commandButton look="primary btn-block" value="Entrar" icon="log-in" size="lg"/>
+                    </h:form>
+                </b:container>
+            </ui:define>
+            <ui:define name="bottom">
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
